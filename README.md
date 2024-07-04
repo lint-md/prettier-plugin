@@ -24,7 +24,7 @@ why？
 这个插件就是结合 Prettier 让你在编写的过程中实时修订错误。
 
 ```txt
-编写md  => 发现问题 => 格式化修订 => 输出
+编写md  => 发现问题 => lint-md 修订 => prettier 格式化 => 输出
 ```
 
 ## 使用
@@ -61,6 +61,8 @@ const result = await format(code, {
 更多使用场景可以参考 [**test**](./__test__/) 目录。
 
 ## 配置
+
+**初始情况下已经包含了预设规则，所以确定你有需要调整的规则可以继续往下阅读。**
 
 lint-md 支持 `.lintmdrc` JSON 文件，`prettier-plugin-lint-md` 同样也支持，只需要在配置文件传递 `configFile` 即可。
 
