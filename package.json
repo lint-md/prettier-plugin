@@ -25,7 +25,7 @@
   },
   "license": "MIT",
   "type": "module",
-  "main": "./dist/prettier-plugin-lint-md.cjs",
+  "main": "./dist/prettier-plugin-lint-md.js",
   "module": "./dist/prettier-plugin-lint-md.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -55,7 +55,7 @@
   "dependencies": {
     "@lint-md/core": "^2.0.0"
   },
-  "engines": {
-    "node": ">=18"
+  "peerDependencies": {
+    "prettier": ">= 3"
   }
 }

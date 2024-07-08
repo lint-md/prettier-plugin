@@ -1,6 +1,6 @@
 # prettier-plugin-lint-md
 
-![logo](https://private-user-images.githubusercontent.com/39508895/345786492-0630d044-f001-4f1d-8fd0-e2124f2e4d43.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjAwODc1NDYsIm5iZiI6MTcyMDA4NzI0NiwicGF0aCI6Ii8zOTUwODg5NS8zNDU3ODY0OTItMDYzMGQwNDQtZjAwMS00ZjFkLThmZDAtZTIxMjRmMmU0ZDQzLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MDQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzA0VDEwMDA0NlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTFmYjQ0ZmFiYzQ3MDU0Njc5ZTYzN2M5NmQ2ZmIzYWZhYjA1YzQ3NWM1OTNiMDY1ZGE5YWVmYjU3ZGNmMjdjODYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.8KeBohMS3_XOONmPLYE59gEji2OWeH4vPC46aNv5b1E)
+![logo](./img/logo.png)
 
 why？
 
@@ -17,11 +17,11 @@ why？
 
 [lint-md](https://github.com/lint-md/lint-md) 是检查中文 Markdown 编写格式的工具，让你的文档更加优雅规范。
 
-它内置了许多检查
+它内置了许多检查：
 
 ![alt text](img/image-1.png)
 
-具体就是[阮一峰写的中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide)
+具体配置就是[阮一峰写的中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide)
 
 这个插件就是结合 Prettier 让你在编写的过程中实时修订错误。
 
@@ -32,14 +32,14 @@ why？
 ## 使用
 
 ```sh
-npm i prettier-plugin-lint-md -D
+npm i prettier-plugin-lint-md prettier -D
 # or
-yarn i prettier-plugin-lint-md -D
+yarn i prettier-plugin-lint-md prettier -D
 # pnpm
-pnpm add prettier-plugin-lint-md -D
+pnpm add prettier-plugin-lint-md prettier -D
 ```
 
-在 Prettier 支持的配置文件，例如 `.prettierrc.mjs`
+在 Prettier 支持的[配置文件](https://prettier.io/docs/en/configuration)，例如 `.prettierrc.mjs`
 
 ```js
 export default {
@@ -47,6 +47,9 @@ export default {
   plugins: [`prettier-plugin-lint-md`],
 };
 ```
+
+> 上面的配置是 prettier 3.0 的配置，对于低版本的 prettier 不太清楚上面配置是否有效。
+> 如果需要导入 cjs 模板的可以使用 `prettier-plugin-lint-md/dist/prettier-plugin-lint-md.cjs`。
 
 ### Node 调用
 
@@ -61,6 +64,14 @@ const result = await format(code, {
 ```
 
 更多使用场景可以参考 [**test**](./__test__/) 目录。
+
+> 默认 import 导入的是 es 模块，但是 cjs 模块也是在构建列表中，如果想要使用，可以通过下面的形式导入。
+>
+> ```js
+> const prettierPluginLintMd = require('prettier-plugin-lint-md/dist/prettier-plugin-lint-md.cjs');
+> // prettierPluginLintMd 有可能需要结合 prettierPluginLintMd.default 来使用，具体看构建工具实现。
+> // 具体参考 [rollupjs.org/configuration-options](https://rollupjs.org/configuration-options/#output-exports)
+> ```
 
 ## 配置
 
