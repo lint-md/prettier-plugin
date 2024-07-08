@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-lint-md",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "prettier 格式化插件，让其符合中文编写规范。",
   "contributors": [
     "yliu <yangboses@gmail.com>"
