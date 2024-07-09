@@ -1,5 +1,7 @@
 # prettier-plugin-lint-md
 
+![Static Badge](https://img.shields.io/badge/MIT-License-blue) ![Static Badge](https://img.shields.io/badge/vitest-100%25-green)
+
 ![logo](./img/logo.png)
 
 why？
@@ -63,7 +65,7 @@ const result = await format(code, {
 });
 ```
 
-更多使用场景可以参考 [**test**](./__test__/) 目录。
+更多示例可以参考 [\***\*test\*\***](./__test__/) 目录。
 
 > 默认 import 导入的是 es 模块，但是 cjs 模块也是在构建列表中，如果想要使用，可以通过下面的形式导入。
 >
@@ -106,7 +108,7 @@ export default {
 
 但是这些是 CLI 中使用的，在 prettier 中则需要 `true` 和 `false` 即可。
 
-> configFile 配置会被手动传递的覆盖。
+> configFile 配置会被手动传递的规则覆盖，完整规则列表[点击查看](https://github.com/lint-md/lint-md?tab=readme-ov-file#%E8%A7%84%E5%88%99%E6%A6%82%E8%BF%B0)。
 
 ## 协议
 
