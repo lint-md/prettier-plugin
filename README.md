@@ -94,11 +94,13 @@ export default {
 
 > configFile 可以是一个绝对路径也可以是相对路径，如果是相对路径会根据根目录来计算，如果绝对路径则直接启用。
 
-### [具体配置项](https://github.com/lint-md/lint-md?tab=readme-ov-file#%E8%A7%84%E5%88%99%E6%A6%82%E8%BF%B0)
+### 具体配置项
+
+完整配置项内容[点击查看](https://github.com/lint-md/lint-md?tab=readme-ov-file#%E8%A7%84%E5%88%99%E6%A6%82%E8%BF%B0)
 
 ![alt text](img/image-1.png)
 
-上面列举的一系列规则只需要在 `.prettierrc.mjs` 写入即可，例如
+之后在 `.prettierrc.mjs` 写入需要调整的配置项即可，例如禁止 `中文与英文之间需要增加空格`
 
 ```js
 // .prettierrc.mjs
@@ -110,6 +112,7 @@ export default {
 ```
 
 不过需要额外注意两点：
+
 **1.** 除了 `configFile` 其他都是 `boolean`，虽然规则值本身是 `0, 1, 2` 这样的字段
 ![alt text](img/image-2.png)
 但是这些是 CLI 中使用的，在 prettier 中不需要警告，只需要修复所以是 `true` 和 `false` 。
