@@ -6,7 +6,7 @@
 
 why？
 
-[Prettier 3.0](https://prettier.io/blog/2023/07/05/3.0.0.html#stop-inserting-spaces-between-chinese-or-japanese-and-western-characters) 有需要变动，其中有一条将不会自动在中英文符号插入空格提高可读性。
+[Prettier 3.0](https://prettier.io/blog/2023/07/05/3.0.0.html#stop-inserting-spaces-between-chinese-or-japanese-and-western-characters) 有许多变动，其中有一条将不会自动在中英文符号插入空格提高可读性。
 
 ![alt text](img/image.png)
 
@@ -36,7 +36,7 @@ why？
 ```sh
 npm i prettier-plugin-lint-md prettier -D
 # or
-yarn i prettier-plugin-lint-md prettier -D
+yarn add prettier-plugin-lint-md prettier -D
 # pnpm
 pnpm add prettier-plugin-lint-md prettier -D
 ```
@@ -77,9 +77,11 @@ const result = await format(code, {
 
 ## 配置
 
-**初始情况下已经包含了预设规则，所以确定你有需要调整的规则可以继续往下阅读。**
+初始情况下开箱即用，如果需要对规则细致调整可以继续往下阅读。
 
-lint-md 支持 `.lintmdrc` JSON 文件，`prettier-plugin-lint-md` 同样也支持，只需要在配置文件传递 `configFile` 即可。
+lint-md 支持 `.lintmdrc` JSON 配置文件，`prettier-plugin-lint-md` 同样也支持，默认情况下会自动启用 `.lintmdrc` 文件内的配置。
+
+如果想启用其他文件名称可以在配置文件传递 `configFile` 字段。
 
 ```js
 // .prettierrc.mjs
@@ -90,9 +92,13 @@ export default {
 };
 ```
 
-> 默认会自动检测 `.lintmdrc` 文件，所以默认情况下你可以不需要传递，但是如果你想定义其它名称则需要传递，`.lintmdrc` 可以是一个绝对路径也可以是相对路径。
+> configFile 可以是一个绝对路径也可以是相对路径，如果是相对路径会根据根目录来计算，如果绝对路径则直接启用。
 
-还有上面列举的一系列规则也同样支持，在 `.prettierrc.mjs` 直接写入即可，例如
+### [具体配置项](https://github.com/lint-md/lint-md?tab=readme-ov-file#%E8%A7%84%E5%88%99%E6%A6%82%E8%BF%B0)
+
+![alt text](img/image-1.png)
+
+上面列举的一系列规则只需要在 `.prettierrc.mjs` 写入即可，例如
 
 ```js
 // .prettierrc.mjs
@@ -103,12 +109,14 @@ export default {
 };
 ```
 
-这里需要注意，除了 `configFile` 其他都是 `boolean`，虽然规则本身的值是下面
+不过需要额外注意两点：
+**1.** 除了 `configFile` 其他都是 `boolean`，虽然规则值本身是 `0, 1, 2` 这样的字段
 ![alt text](img/image-2.png)
+但是这些是 CLI 中使用的，在 prettier 中不需要警告，只需要修复所以是 `true` 和 `false` 。
 
-但是这些是 CLI 中使用的，在 prettier 中则需要 `true` 和 `false` 即可。
+**2.** 不支持 `no-long-code`，因为不支持自动修复，所以没必要存在。
 
-> configFile 配置会被手动传递的规则覆盖，完整规则列表[点击查看](https://github.com/lint-md/lint-md?tab=readme-ov-file#%E8%A7%84%E5%88%99%E6%A6%82%E8%BF%B0)。
+> configFile 配置会被手动传递的规则覆盖。
 
 ## 协议
 
