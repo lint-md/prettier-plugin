@@ -28,7 +28,7 @@ why？
 这个插件就是结合 Prettier 让你在编写的过程中实时修订错误。
 
 ```txt
-编写md  => 发现问题 => lint-md 修订 => prettier 格式化 => 输出
+编写 markdown  => 发现问题 => lint-md 修订 => prettier 格式化 => 输出
 ```
 
 ## 使用
