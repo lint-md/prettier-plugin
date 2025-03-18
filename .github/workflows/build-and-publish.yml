@@ -17,15 +17,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js and pnpm
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: 'pnpm'
+          cache: pnpm
           registry-url: 'https://registry.npmjs.org'
-
-      - name: Install pnpm
-        run: npm install -g pnpm
 
       - name: Install dependencies
         run: pnpm install
