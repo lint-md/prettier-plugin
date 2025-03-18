@@ -27,7 +27,6 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-          registry-url: 'https://registry.npmjs.org'
 
       - name: Install dependencies
         run: pnpm install
@@ -68,9 +67,12 @@ jobs:
 
       - name: Publish to npm
         if: env.ALREADY_PUBLISHED == 'false'
-        run: pnpm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
+          npm config set registry=https://registry.npmjs.org/
+          npm publish --access public
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
