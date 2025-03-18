@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-lint-md",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "prettier 格式化插件，让其符合中文编写规范。",
   "contributors": [
     "yliu <yangboses@gmail.com>"
@@ -25,7 +25,7 @@
   },
   "license": "MIT",
   "type": "module",
-  "main": "./dist/prettier-plugin-lint-md.js",
+  "main": "./dist/prettier-plugin-lint-md.cjs",
   "module": "./dist/prettier-plugin-lint-md.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -57,5 +57,10 @@
   },
   "peerDependencies": {
     "prettier": ">= 3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }
