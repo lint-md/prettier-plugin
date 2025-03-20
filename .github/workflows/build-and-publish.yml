@@ -3,7 +3,7 @@ name: Build and Publish
 on:
   push:
     branches:
-      - master
+      - __master__ # 暂时不运行
     paths:
       - 'package.json'
       - '.github/workflows/build-and-publish.yml'

@@ -1,0 +1,15 @@
+name: Release Please
+on:
+  push:
+    branches:
+      - master
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          release-type: 'node' # 针对 Node.js 项目
+          package-name: 'prettier-plugin-lint-md' # 与 package.json 名称一致
+          changelog-types: '[{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false}]'
