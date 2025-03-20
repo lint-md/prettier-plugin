@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.0.2](https://github.com/lint-md/prettier-plugin/compare/v1.0.1...v1.0.2) (2025-03-20)
+
+
+### Bug Fixes
+
+* 修复package文件指向不正确问题 ([a6603f0](https://github.com/lint-md/prettier-plugin/commit/a6603f049a59446ec7ee158002941bfe30996081))
+
 ## [1.0.1](https://github.com/bosens-China/prettier-plugin-lint-md/compare/v1.0.0...v1.0.1) (2024-07-08)
 
 
